@@ -567,8 +567,78 @@ body {
     .visual-refresh body,
     .visual-refresh .theme-dark,
     .visual-refresh .theme-light:not(.custom-profile-theme) {
-        --activity-card-background: red;
-        --alert-bg: red;
+        /* Definición de las variables principales basadas en el segundo tema */
+        --dark-bg-h: var(--dark-background-hue, 0);
+        --dark-bg-s: var(--dark-background-saturation, 0%);
+        
+        /* Mapeando las variables originales a las nuevas */
+        --bg-0: hsl(var(--dark-bg-h) var(--dark-bg-s) 13%);        /* bg-main */
+        --bg-1: hsl(var(--dark-bg-h) var(--dark-bg-s) 15%);        /* bg-alt */
+        --bg-2: hsl(var(--dark-bg-h) var(--dark-bg-s) 17%);        /* bg-content */
+        --bg-3: hsl(var(--dark-bg-h) var(--dark-bg-s) 18%);        /* bg-content-alt */
+        --bg-4: hsl(var(--dark-bg-h) var(--dark-bg-s) 20%);        /* bg-high */
+        
+        --hover: hsl(var(--dark-bg-h) var(--dark-bg-s) 40% / 0.25); /* bg-transparent */
+        --active: hsl(var(--dark-bg-h) var(--dark-bg-s) 40% / 0.35); /* bg-transparent-hover */
+        --active-2: hsl(var(--dark-bg-h) var(--dark-bg-s) 40% / 0.4); /* bg-transparent-active */
+        
+        --text-0: hsl(var(--dark-bg-h) var(--dark-bg-s) 90%);      /* text-primary */
+        --text-1: hsl(var(--dark-bg-h) var(--dark-bg-s) 85%);      /* basado en text-secondary */
+        --text-2: hsl(var(--dark-bg-h) var(--dark-bg-s) 85% / 75%); /* text-secondary */
+        --text-3: hsl(var(--dark-bg-h) var(--dark-bg-s) 80% / 55%); /* text-tertiary */
+        --text-4: hsl(var(--dark-bg-h) var(--dark-bg-s) 75% / 45%); /* basado en text-quaternary */
+        --text-5: hsl(var(--dark-bg-h) var(--dark-bg-s) 75% / 35%); /* text-quaternary */
+        
+        --border: hsl(var(--dark-bg-h) var(--dark-bg-s) 11%);      /* border */
+        --border-light: hsl(var(--dark-bg-h) var(--dark-bg-s) 20%); /* border-mid */
+        
+        --message-hover: hsl(var(--dark-bg-h) var(--dark-bg-s) 16%); /* bg-interactive-hover */
+        
+        /* Colores de acento y estados */
+        --accent-1: #5865f2; /* Manteniendo el color original de Discord */
+        --accent-2: #4752c4; /* Un tono más oscuro del acento */
+        --accent-3: #3c45a5; /* Un tono aún más oscuro */
+        --accent-4: #313986; /* Más oscuro */
+        --accent-5: #252b66; /* El más oscuro */
+        
+        --red-1: #ed4245;    /* Color rojo de Discord */
+        --red-2: #c03b3e;    /* Rojo más oscuro */
+        --red-3: #942d30;    /* Rojo aún más oscuro */
+        --red-4: #672023;    /* Rojo muy oscuro */
+        --red-5: #3a1516;    /* El rojo más oscuro */
+        
+        --green-1: #3ba55c;  /* Verde de Discord */
+        --green-2: #2a8d45;  /* Verde más oscuro */
+        --green-3: #1b592d;  /* Verde aún más oscuro */
+        --green-4: #113a1d;  /* Verde muy oscuro */
+        
+        --yellow-1: #faa61a; /* Amarillo de Discord */
+        --yellow-2: #d88c15; /* Amarillo más oscuro */
+        
+        --blue-1: #3e70dd;   /* Azul de Discord */
+        --blue-2: #2a56b5;   /* Azul más oscuro */
+        
+        /* Estados de presencia */
+        --online: #3ba55c;   /* Online */
+        --idle: #faa61a;     /* Idle */
+        --dnd: #ed4245;      /* Do Not Disturb */
+        --offline: #747f8d;  /* Offline */
+        
+        /* Áreas específicas */
+        --mention: hsl(var(--dark-bg-h) var(--dark-bg-s) 100% / 0.05); /* chat-mention-bubble */
+        --mention-hover: hsl(var(--dark-bg-h) var(--dark-bg-s) 100% / 0.10); /* Más visible en hover */
+        
+        --reply: hsl(var(--dark-bg-h) var(--dark-bg-s) 40% / 0.1);
+        --reply-hover: hsl(var(--dark-bg-h) var(--dark-bg-s) 40% / 0.15);
+        
+        --button-border: transparent;
+        
+        --black: #000000;
+        --white: #ffffff;
+
+        /* Aplicando las variables mapeadas a los elementos de interfaz */
+        --activity-card-background: var(--bg-2);
+        --alert-bg: var(--bg-2);
         --autocomplete-bg: var(--bg-3);
 
         --background-accent: var(--bg-2);
@@ -576,8 +646,8 @@ body {
         --background-nested-floating: var(--bg-4);
         --background-mentioned: var(--mention);
         --background-mentioned-hover: var(--mention-hover);
-        --background-message-automod: red;
-        --background-message-automod-hover: red;
+        --background-message-automod: var(--red-3);
+        --background-message-automod-hover: var(--red-2);
         --background-message-highlight: var(--reply);
         --background-message-highlight-hover: var(--reply-hover);
         --background-message-hover: var(--message-hover);
@@ -587,7 +657,7 @@ body {
         --background-secondary-alt: var(--bg-3);
         --background-tertiary: var(--bg-4);
 
-        --bg-base-primary: var(--bg-4); /* screenshare window? */
+        --bg-base-primary: var(--bg-4);
         --bg-base-secondary: var(--bg-4);
         --bg-base-tertiary: var(--bg-3);
         --background-mod-subtle: var(--bg-3);
@@ -603,7 +673,7 @@ body {
         --bg-surface-raised: var(--bg-3);
         --chat-background-default: var(--bg-3);
         --chat-text-muted: var(--text-5);
-        --input-background: var(--bg-3);
+        --input-background: var(--textbox-bg);
         --modal-background: var(--bg-4);
         --modal-footer-background: var(--bg-4);
 
@@ -621,7 +691,7 @@ body {
         --border-subtle: var(--border);
         --border-normal: var(--border);
         --border-strong: var(--border);
-        --input-border: var(--border);
+        --input-border: var(--textbox-border);
 
         --button-danger-background: var(--red-3);
         --button-danger-background-active: var(--red-5);
@@ -654,7 +724,7 @@ body {
         --button-outline-danger-text-active: var(--red-1);
         --button-outline-danger-text-hover: var(--red-1);
 
-        --button-outline-primary-background: red;
+        --button-outline-primary-background: var(--bg-2);
         --button-outline-primary-background-active: var(--active);
         --button-outline-primary-background-hover: var(--hover);
         --button-outline-primary-border: var(--text-5);
@@ -664,7 +734,7 @@ body {
         --button-outline-primary-text-active: var(--text-3);
         --button-outline-primary-text-hover: var(--text-3);
 
-        --button-outline-positive-background: red;
+        --button-outline-positive-background: var(--bg-2);
         --button-outline-positive-background-active: var(--green-4);
         --button-outline-positive-background-hover: var(--green-3);
         --button-outline-positive-border: var(--green-2);
@@ -712,8 +782,8 @@ body {
         --icon-secondary: var(--text-4);
         --icon-tertiary: var(--text-4);
 
-        --info-danger-background: red;
-        --info-danger-text: red;
+        --info-danger-background: color-mix(in hsl, var(--red-2), transparent 80%);
+        --info-danger-text: var(--red-1);
         --info-help-background: color-mix(in hsl, var(--blue-2), transparent 80%);
         --info-help-foreground: var(--blue-1);
         --info-help-text: var(--blue-1);
@@ -725,9 +795,9 @@ body {
         --text-brand: var(--accent-1);
         --text-danger: var(--red-1);
         --text-link: var(--accent-1);
-        --text-link-low-saturation: red;
+        --text-link-low-saturation: var(--accent-2);
         --text-low-contrast: var(--text-4);
-        --text-message-preview-low-sat: red;
+        --text-message-preview-low-sat: var(--text-3);
         --text-muted: var(--text-5);
         --text-muted-on-default: var(--text-4);
         --text-normal: var(--text-3);
@@ -738,14 +808,14 @@ body {
         --text-default: var(--text-3);
         --text-feedback-critical: var(--red-1);
         --text-feedback-positive: var(--green-1);
-        --text-feedback-info: red;
-        --text-feedback-warning: red;
+        --text-feedback-info: var(--blue-1);
+        --text-feedback-warning: var(--yellow-1);
         --text-tertiary: var(--text-4);
 
         --status-danger: var(--red-2);
         --status-danger-background: var(--red-3);
         --status-danger-text: var(--white);
-        --status-dnd: var(--dnd); /* server profiles */
+        --status-dnd: var(--dnd);
         --status-idle: var(--idle);
         --status-offline: var(--offline);
         --status-online: var(--online);
@@ -754,7 +824,7 @@ body {
         --status-positive-text: var(--white);
         --status-speaking: var(--green-2);
         --status-warning: var(--yellow-2);
-        --status-warning-background: red;
+        --status-warning-background: var(--yellow-2);
         --status-warning-text: var(--black);
 
         --background-feedback-critical: color-mix(in hsl, var(--red-2), transparent 80%);
@@ -779,9 +849,9 @@ body {
 
         --redesign-input-control-selected: var(--accent-2);
 
-        --scrollbar-auto-thumb: var(--bg-3);
+        --scrollbar-auto-thumb: var(--scrollbar-background);
         --scrollbar-auto-track: transparent;
-        --scrollbar-thin-thumb: var(--bg-3);
+        --scrollbar-thin-thumb: var(--scrollbar-background);
         --scrollbar-thin-track: transparent;
 
         --white: var(--text-0);
@@ -795,7 +865,7 @@ body {
         --red-400: var(--red-2);
         --red-500: var(--red-3);
 
-        --green-360: var(--green-2); /* seems to be mostly used by vencord plugins */
+        --green-360: var(--green-2);
         --primary-400: var(--text-4);
     }
 
